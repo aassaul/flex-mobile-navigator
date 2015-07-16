@@ -12,7 +12,6 @@ import com.trembit.mobile.navigator.commands.AssertNavigationBackwardCommand;
 import com.trembit.mobile.navigator.commands.AssertNavigationForwardCommand;
 import com.trembit.mobile.navigator.commands.SendTestCompleteCommand;
 import com.trembit.mobile.navigator.model.vo.ViewStateVO;
-import com.trembit.mobile.navigator.model.vo.ViewStateVO;
 import com.trembit.mobile.navigator.views.View1;
 import com.trembit.mobile.navigator.views.View2;
 import com.trembit.mobile.navigator.views.View3;
@@ -101,6 +100,8 @@ public class StateViewNavigatorTest extends StateViewNavigator{
 	}
 
 	private function onTestComplete(event:Event, data:*):void{
+		Assert.assertNotNull(event);
+		Assert.assertNull(data);
 		this.removeEventListener("TestComplete", completeHandler);
 		completeHandler = null;
 		setNavigationStates();
